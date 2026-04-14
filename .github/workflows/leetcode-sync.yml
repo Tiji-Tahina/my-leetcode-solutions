@@ -1,19 +1,1 @@
-name: LeetCode Sync
 
-on:
-  schedule:
-    - cron: '0 * * * *'   # runs every hour
-  workflow_dispatch:       # allows manual trigger
-
-jobs:
-  sync:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
-      - name: Sync LeetCode submissions
-        uses: joshcai/leetcode-sync@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          leetcode_cookie: ${{ secrets.LEETCODE_COOKIE }}
